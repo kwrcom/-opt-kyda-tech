@@ -1,0 +1,4 @@
+# docker-compose.yml — заполните по необходимости
+version: '3.8'
+services:
+  # placeholder
