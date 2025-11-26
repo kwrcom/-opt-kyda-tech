@@ -1,3 +1,2 @@
-# Secrets and runtime data
 .env
-/data/
+data/

@@ -1,0 +1,10 @@
+# Dynamic configuration placeholder for Traefik
+# Currently we rely on the static file's ACME resolver using httpChallenge.
+# You can add additional routers, services or middlewares here if needed.
+
+# Example of additional TLS options (optional):
+# tls:
+#   options:
+#     default:
+#       minVersion: VersionTLS12
+#       sniStrict: true
