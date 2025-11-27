@@ -1,0 +1,874 @@
+[2025-11-27T18:38:17.129+0000] {processor.py:161} INFO - Started process (PID=33) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:17.137+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:38:17.139+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:38:17.138+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:18.898+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:38:18.897+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:38:18.898+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:18.916+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.796 seconds
+[2025-11-27T18:38:49.078+0000] {processor.py:161} INFO - Started process (PID=35) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:49.083+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:38:49.084+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:38:49.083+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:49.585+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:38:49.583+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:38:49.586+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:38:49.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.548 seconds
+[2025-11-27T18:39:19.744+0000] {processor.py:161} INFO - Started process (PID=37) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:19.745+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:39:19.746+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:39:19.746+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:20.019+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:39:20.018+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:39:20.020+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:20.043+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.303 seconds
+[2025-11-27T18:39:50.182+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:50.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:39:50.185+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:39:50.184+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:50.455+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:39:50.453+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:39:50.455+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:39:50.475+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.298 seconds
+[2025-11-27T18:40:20.623+0000] {processor.py:161} INFO - Started process (PID=41) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:20.625+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:40:20.626+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:40:20.625+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:21.069+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:40:21.068+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:40:21.069+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:21.085+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.466 seconds
+[2025-11-27T18:40:51.226+0000] {processor.py:161} INFO - Started process (PID=43) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:51.227+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:40:51.228+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:40:51.228+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:51.674+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:40:51.673+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:40:51.675+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:40:51.690+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.469 seconds
+[2025-11-27T18:41:21.848+0000] {processor.py:161} INFO - Started process (PID=45) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:21.850+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:41:21.851+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:41:21.851+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:22.143+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:41:22.141+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:41:22.144+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:22.167+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.323 seconds
+[2025-11-27T18:41:52.305+0000] {processor.py:161} INFO - Started process (PID=47) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:52.307+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:41:52.308+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:41:52.307+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:52.590+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:41:52.587+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:41:52.590+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:41:52.609+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.310 seconds
+[2025-11-27T18:42:22.746+0000] {processor.py:161} INFO - Started process (PID=49) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:22.748+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:42:22.750+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:42:22.749+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:23.197+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:42:23.196+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:42:23.197+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:23.213+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.472 seconds
+[2025-11-27T18:42:53.358+0000] {processor.py:161} INFO - Started process (PID=51) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:53.360+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:42:53.360+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:42:53.360+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:53.826+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:42:53.825+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:42:53.826+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:42:53.845+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.491 seconds
+[2025-11-27T18:43:24.002+0000] {processor.py:161} INFO - Started process (PID=53) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:24.004+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:43:24.006+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:43:24.005+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:24.565+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:43:24.564+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:43:24.566+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:24.583+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.586 seconds
+[2025-11-27T18:43:54.638+0000] {processor.py:161} INFO - Started process (PID=55) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:54.640+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:43:54.641+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:43:54.641+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:54.910+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:43:54.908+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:43:54.911+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:43:54.929+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.296 seconds
+[2025-11-27T18:44:25.072+0000] {processor.py:161} INFO - Started process (PID=57) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:25.074+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:44:25.074+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:44:25.074+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:25.516+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:44:25.515+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:44:25.516+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:25.531+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.463 seconds
+[2025-11-27T18:44:55.677+0000] {processor.py:161} INFO - Started process (PID=59) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:55.679+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:44:55.681+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:44:55.680+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:56.223+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:44:56.222+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:44:56.223+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:44:56.240+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.568 seconds
+[2025-11-27T18:45:26.345+0000] {processor.py:161} INFO - Started process (PID=61) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:26.347+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:45:26.348+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:45:26.347+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:26.800+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:45:26.798+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:45:26.800+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:26.818+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.477 seconds
+[2025-11-27T18:45:56.972+0000] {processor.py:161} INFO - Started process (PID=63) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:56.973+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:45:56.974+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:45:56.974+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:57.467+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:45:57.466+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:45:57.468+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:45:57.484+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.517 seconds
+[2025-11-27T18:46:27.647+0000] {processor.py:161} INFO - Started process (PID=65) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:27.649+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:46:27.650+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:46:27.650+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:28.225+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:46:28.224+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:46:28.225+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:28.241+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.601 seconds
+[2025-11-27T18:46:58.401+0000] {processor.py:161} INFO - Started process (PID=67) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:58.402+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:46:58.403+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:46:58.403+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:58.892+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:46:58.891+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:46:58.893+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:46:58.907+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.512 seconds
+[2025-11-27T18:48:27.756+0000] {processor.py:161} INFO - Started process (PID=33) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:27.758+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:48:27.758+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:48:27.758+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:28.870+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:48:28.869+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:48:28.871+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:28.891+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.139 seconds
+[2025-11-27T18:48:58.930+0000] {processor.py:161} INFO - Started process (PID=35) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:58.932+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:48:58.934+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:48:58.933+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:59.231+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:48:59.229+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:48:59.232+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:48:59.251+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.326 seconds
+[2025-11-27T18:49:29.381+0000] {processor.py:161} INFO - Started process (PID=37) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:49:29.382+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:49:29.383+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:49:29.383+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:49:29.642+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:49:29.639+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:49:29.642+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:49:29.662+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.286 seconds
+[2025-11-27T18:49:59.805+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:49:59.807+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:49:59.808+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:49:59.808+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:50:00.128+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:50:00.126+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:50:00.129+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:50:00.155+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.355 seconds
+[2025-11-27T18:50:30.298+0000] {processor.py:161} INFO - Started process (PID=41) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:50:30.299+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:50:30.300+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:50:30.300+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:50:30.816+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:50:30.815+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:50:30.817+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:50:30.834+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.540 seconds
+[2025-11-27T18:51:00.982+0000] {processor.py:161} INFO - Started process (PID=43) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:00.983+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:51:00.984+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:51:00.984+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:01.451+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:51:01.450+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:51:01.451+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:01.466+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.488 seconds
+[2025-11-27T18:51:31.548+0000] {processor.py:161} INFO - Started process (PID=45) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:31.550+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:51:31.550+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:51:31.550+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:31.866+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:51:31.864+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:51:31.867+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:51:31.890+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.346 seconds
+[2025-11-27T18:52:02.039+0000] {processor.py:161} INFO - Started process (PID=47) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:02.040+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:52:02.041+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:52:02.041+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:02.301+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:52:02.299+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:52:02.302+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:02.321+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.288 seconds
+[2025-11-27T18:52:32.460+0000] {processor.py:161} INFO - Started process (PID=49) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:32.462+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:52:32.463+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:52:32.463+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:32.952+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:52:32.951+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:52:32.953+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:52:32.969+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.514 seconds
+[2025-11-27T18:53:03.132+0000] {processor.py:161} INFO - Started process (PID=51) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:03.134+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:53:03.135+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:53:03.135+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:03.637+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:53:03.635+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:53:03.637+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:03.656+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.529 seconds
+[2025-11-27T18:53:33.731+0000] {processor.py:161} INFO - Started process (PID=53) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:33.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:53:33.734+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:53:33.734+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:34.728+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:53:34.726+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:53:34.728+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:53:34.748+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.023 seconds
+[2025-11-27T18:54:04.898+0000] {processor.py:161} INFO - Started process (PID=55) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:04.903+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:54:04.904+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:54:04.904+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:05.432+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:54:05.430+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:54:05.433+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:05.458+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.568 seconds
+[2025-11-27T18:54:35.607+0000] {processor.py:161} INFO - Started process (PID=57) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:35.609+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:54:35.610+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:54:35.610+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:36.216+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:54:36.215+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:54:36.217+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:54:36.233+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.631 seconds
+[2025-11-27T18:55:06.384+0000] {processor.py:161} INFO - Started process (PID=59) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:06.387+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:55:06.389+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:55:06.388+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:06.938+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:55:06.937+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:55:06.939+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:06.958+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.579 seconds
+[2025-11-27T18:55:37.121+0000] {processor.py:161} INFO - Started process (PID=61) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:37.123+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:55:37.124+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:55:37.124+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:37.636+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:55:37.634+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:55:37.636+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:55:37.651+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.536 seconds
+[2025-11-27T18:56:07.794+0000] {processor.py:161} INFO - Started process (PID=63) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:07.796+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:56:07.797+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:56:07.797+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:08.270+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:56:08.269+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:56:08.270+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:08.288+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.499 seconds
+[2025-11-27T18:56:38.441+0000] {processor.py:161} INFO - Started process (PID=65) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:38.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:56:38.443+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:56:38.443+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:38.983+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:56:38.981+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:56:38.983+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:56:39.002+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.567 seconds
+[2025-11-27T18:57:09.086+0000] {processor.py:161} INFO - Started process (PID=67) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:09.088+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:57:09.089+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:57:09.088+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:09.647+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:57:09.645+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:57:09.647+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:09.662+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.582 seconds
+[2025-11-27T18:57:39.831+0000] {processor.py:161} INFO - Started process (PID=69) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:39.834+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:57:39.836+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:57:39.835+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:40.428+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:57:40.426+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:57:40.428+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:57:40.448+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.626 seconds
+[2025-11-27T18:58:10.595+0000] {processor.py:161} INFO - Started process (PID=71) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:10.597+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:58:10.598+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:58:10.597+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:11.134+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:58:11.133+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:58:11.135+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:11.153+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.564 seconds
+[2025-11-27T18:58:41.316+0000] {processor.py:161} INFO - Started process (PID=73) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:41.317+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:58:41.318+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:58:41.317+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:41.890+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:58:41.889+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:58:41.891+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:58:41.910+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.599 seconds
+[2025-11-27T18:59:12.060+0000] {processor.py:161} INFO - Started process (PID=75) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:12.062+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:59:12.064+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:59:12.063+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:12.582+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:59:12.581+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:59:12.583+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:12.597+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.543 seconds
+[2025-11-27T18:59:42.751+0000] {processor.py:161} INFO - Started process (PID=77) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:42.753+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T18:59:42.754+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:59:42.753+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:43.214+0000] {logging_mixin.py:188} INFO - [2025-11-27T18:59:43.213+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T18:59:43.215+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T18:59:43.230+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.483 seconds
+[2025-11-27T19:00:13.341+0000] {processor.py:161} INFO - Started process (PID=79) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:13.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:00:13.344+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:00:13.344+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:13.879+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:00:13.878+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:00:13.879+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:13.898+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.561 seconds
+[2025-11-27T19:00:44.060+0000] {processor.py:161} INFO - Started process (PID=81) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:44.061+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:00:44.062+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:00:44.062+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:44.556+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:00:44.555+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:00:44.556+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:00:44.572+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.517 seconds
+[2025-11-27T19:01:14.651+0000] {processor.py:161} INFO - Started process (PID=83) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:14.653+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:01:14.654+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:01:14.653+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:15.104+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:01:15.103+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:01:15.104+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:15.120+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.473 seconds
+[2025-11-27T19:01:45.272+0000] {processor.py:161} INFO - Started process (PID=85) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:45.273+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:01:45.274+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:01:45.274+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:45.765+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:01:45.764+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:01:45.766+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:01:45.783+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.516 seconds
+[2025-11-27T19:02:15.955+0000] {processor.py:161} INFO - Started process (PID=87) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:15.957+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:02:15.958+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:02:15.957+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:16.507+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:02:16.506+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:02:16.507+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:16.524+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.575 seconds
+[2025-11-27T19:02:46.666+0000] {processor.py:161} INFO - Started process (PID=89) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:46.668+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:02:46.668+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:02:46.668+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:47.143+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:02:47.142+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:02:47.144+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:02:47.162+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.500 seconds
+[2025-11-27T19:03:17.326+0000] {processor.py:161} INFO - Started process (PID=91) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:17.328+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:03:17.329+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:03:17.328+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:17.801+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:03:17.800+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:03:17.801+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:17.818+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.498 seconds
+[2025-11-27T19:03:47.952+0000] {processor.py:161} INFO - Started process (PID=93) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:47.954+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:03:47.955+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:03:47.955+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:48.516+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:03:48.515+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:03:48.516+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:03:48.532+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.584 seconds
+[2025-11-27T19:04:18.686+0000] {processor.py:161} INFO - Started process (PID=95) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:18.688+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:04:18.689+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:04:18.689+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:19.209+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:04:19.208+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:04:19.209+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:19.225+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.544 seconds
+[2025-11-27T19:04:49.370+0000] {processor.py:161} INFO - Started process (PID=97) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:49.371+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:04:49.372+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:04:49.372+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:49.875+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:04:49.874+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:04:49.876+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:04:49.892+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.527 seconds
+[2025-11-27T19:05:20.054+0000] {processor.py:161} INFO - Started process (PID=99) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:20.055+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:05:20.056+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:05:20.056+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:20.557+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:05:20.556+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:05:20.558+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:20.573+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.524 seconds
+[2025-11-27T19:05:50.647+0000] {processor.py:161} INFO - Started process (PID=101) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:50.649+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:05:50.650+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:05:50.650+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:51.123+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:05:51.122+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:05:51.124+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:05:51.140+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.497 seconds
+[2025-11-27T19:06:21.287+0000] {processor.py:161} INFO - Started process (PID=103) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:21.288+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:06:21.290+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:06:21.289+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:21.842+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:06:21.841+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:06:21.843+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:21.863+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.581 seconds
+[2025-11-27T19:06:51.982+0000] {processor.py:161} INFO - Started process (PID=105) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:51.984+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:06:51.985+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:06:51.985+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:52.521+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:06:52.520+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:06:52.522+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:06:52.537+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.559 seconds
+[2025-11-27T19:07:22.697+0000] {processor.py:161} INFO - Started process (PID=107) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:07:22.698+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:07:22.699+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:07:22.699+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:07:23.181+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:07:23.179+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+ModuleNotFoundError: No module named 'mlflow'
+[2025-11-27T19:07:23.181+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:07:23.198+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 0.506 seconds
+[2025-11-27T19:14:11.987+0000] {processor.py:161} INFO - Started process (PID=63) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:11.988+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:14:11.990+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:14:11.989+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:13.336+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:14:13.335+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/__init__.py", line 247, in <module>
+    from mlflow import gateway  # noqa: F401
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/__init__.py", line 1, in <module>
+    from mlflow.gateway.fluent import get_route, search_routes, query, create_route, delete_route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/fluent.py", line 4, in <module>
+    from mlflow.gateway.client import MlflowGatewayClient
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/client.py", line 8, in <module>
+    from mlflow.gateway.config import Route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 66, in <module>
+    class OpenAIConfig(ConfigModel):
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 79, in OpenAIConfig
+    @root_validator(pre=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pydantic/deprecated/class_validators.py", line 237, in root_validator
+    raise PydanticUserError(
+pydantic.errors.PydanticUserError: If you use `@root_validator` with pre=False (the default) you MUST specify `skip_on_failure=True`. Note that `@root_validator` is deprecated and should be replaced with `@model_validator`.
+
+For further information visit https://errors.pydantic.dev/2.5/u/root-validator-pre-skip
+[2025-11-27T19:14:13.337+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:13.358+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.374 seconds
+[2025-11-27T19:14:43.513+0000] {processor.py:161} INFO - Started process (PID=72) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:43.518+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:14:43.519+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:14:43.518+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:45.073+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:14:45.071+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/__init__.py", line 247, in <module>
+    from mlflow import gateway  # noqa: F401
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/__init__.py", line 1, in <module>
+    from mlflow.gateway.fluent import get_route, search_routes, query, create_route, delete_route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/fluent.py", line 4, in <module>
+    from mlflow.gateway.client import MlflowGatewayClient
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/client.py", line 8, in <module>
+    from mlflow.gateway.config import Route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 66, in <module>
+    class OpenAIConfig(ConfigModel):
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 79, in OpenAIConfig
+    @root_validator(pre=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pydantic/deprecated/class_validators.py", line 237, in root_validator
+    raise PydanticUserError(
+pydantic.errors.PydanticUserError: If you use `@root_validator` with pre=False (the default) you MUST specify `skip_on_failure=True`. Note that `@root_validator` is deprecated and should be replaced with `@model_validator`.
+
+For further information visit https://errors.pydantic.dev/2.5/u/root-validator-pre-skip
+[2025-11-27T19:14:45.074+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:14:45.092+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.593 seconds
+[2025-11-27T19:15:15.262+0000] {processor.py:161} INFO - Started process (PID=81) to work on /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:15:15.263+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test_ml_pipeline.py for tasks to queue
+[2025-11-27T19:15:15.265+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:15:15.264+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:15:16.292+0000] {logging_mixin.py:188} INFO - [2025-11-27T19:15:16.290+0000] {dagbag.py:348} ERROR - Failed to import: /opt/airflow/dags/test_ml_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 344, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/test_ml_pipeline.py", line 7, in <module>
+    import mlflow
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/__init__.py", line 247, in <module>
+    from mlflow import gateway  # noqa: F401
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/__init__.py", line 1, in <module>
+    from mlflow.gateway.fluent import get_route, search_routes, query, create_route, delete_route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/fluent.py", line 4, in <module>
+    from mlflow.gateway.client import MlflowGatewayClient
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/client.py", line 8, in <module>
+    from mlflow.gateway.config import Route
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 66, in <module>
+    class OpenAIConfig(ConfigModel):
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/gateway/config.py", line 79, in OpenAIConfig
+    @root_validator(pre=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pydantic/deprecated/class_validators.py", line 237, in root_validator
+    raise PydanticUserError(
+pydantic.errors.PydanticUserError: If you use `@root_validator` with pre=False (the default) you MUST specify `skip_on_failure=True`. Note that `@root_validator` is deprecated and should be replaced with `@model_validator`.
+
+For further information visit https://errors.pydantic.dev/2.5/u/root-validator-pre-skip
+[2025-11-27T19:15:16.293+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/test_ml_pipeline.py
+[2025-11-27T19:15:16.313+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test_ml_pipeline.py took 1.055 seconds

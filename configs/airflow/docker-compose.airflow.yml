@@ -1,8 +1,9 @@
 version: '3.8'
 
 services:
+
   airflow-postgres:
-    image: postgres:13
+    image: postgres:14
     container_name: airflow-postgres
     environment:
       POSTGRES_USER: airflow
@@ -14,117 +15,82 @@ services:
       - kyda-network
 
   airflow-redis:
-    image: redis:7-alpine
+    image: redis:7
     container_name: airflow-redis
-    ports:
-      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
     networks:
       - kyda-network
 
   airflow-webserver:
     image: apache/airflow:2.8.1
     container_name: airflow-webserver
-    restart: always
-    depends_on:
-      - airflow-postgres
-      - airflow-redis
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
-      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6379/0
-      - AIRFLOW__CELERY__RESULT_BACKEND=redis://airflow-redis:6379/0
-      - AIRFLOW__CORE__LOAD_EXAMPLES=false
-      - AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
-      - AIRFLOW__WEBSERVER__BASE_URL=http://airflow.kyda.tech:8080
-    volumes:
-      - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
-      - ./airflow.cfg:/opt/airflow/airflow.cfg
-    ports:
-      - "8080:8080"
     command: webserver
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    networks:
-      - kyda-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.airflow.rule=Host(`airflow.kyda.tech`)"
-      - "traefik.http.routers.airflow.entrypoints=web"
-
-  airflow-scheduler:
-    image: apache/airflow:2.8.1
-    container_name: airflow-scheduler
     restart: always
-    depends_on:
-      - airflow-postgres
-      - airflow-redis
-      - airflow-webserver
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
-      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6379/0
-      - AIRFLOW__CELERY__RESULT_BACKEND=redis://airflow-redis:6379/0
-      - AIRFLOW__CORE__LOAD_EXAMPLES=false
-      - AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+    env_file:
+      - ./env-airflow.env
     volumes:
-      - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
+      - ../../dags:/opt/airflow/dags
       - ./airflow.cfg:/opt/airflow/airflow.cfg
-    command: scheduler
-    networks:
-      - kyda-network
-
-  airflow-worker:
-    image: apache/airflow:2.8.1
-    container_name: airflow-worker
-    restart: always
     depends_on:
       - airflow-postgres
       - airflow-redis
       - airflow-scheduler
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
-      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6379/0
-      - AIRFLOW__CELERY__RESULT_BACKEND=redis://airflow-redis:6379/0
-      - AIRFLOW__CORE__LOAD_EXAMPLES=false
-      - AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
-    volumes:
-      - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
-      - ./airflow.cfg:/opt/airflow/airflow.cfg
-    command: celery worker
+      - airflow-worker
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.airflow.rule=Host(`airflow.kyda.tech`)"
+      - "traefik.http.routers.airflow.entrypoints=websecure"
+      - "traefik.http.services.airflow.loadbalancer.server.port=8080"
     networks:
       - kyda-network
+
+  airflow-scheduler:
+    image: apache/airflow:2.8.1
+    container_name: airflow-scheduler
+    command: scheduler
+    restart: always
+    env_file:
+      - ./env-airflow.env
+    volumes:
+      - ../../dags:/opt/airflow/dags
+      - ./airflow.cfg:/opt/airflow/airflow.cfg
+    networks:
+      - kyda-network
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+
+  airflow-worker:
+    image: apache/airflow:2.8.1
+    container_name: airflow-worker
+    command: celery worker
+    restart: always
+    env_file:
+      - ./env-airflow.env
+    volumes:
+      - ../../dags:/opt/airflow/dags
+      - ./airflow.cfg:/opt/airflow/airflow.cfg
+    networks:
+      - kyda-network
+    depends_on:
+      - airflow-scheduler
 
   airflow-flower:
     image: apache/airflow:2.8.1
     container_name: airflow-flower
-    restart: always
-    depends_on:
-      - airflow-redis
-      - airflow-worker
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
-      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6379/0
-      - AIRFLOW__CELERY__RESULT_BACKEND=redis://airflow-redis:6379/0
-    ports:
-      - "5555:5555"
     command: celery flower
-    networks:
-      - kyda-network
+    restart: always
+    env_file:
+      - ./env-airflow.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.flower.rule=Host(`flower.kyda.tech`)"
-      - "traefik.http.routers.flower.entrypoints=web"
+      - "traefik.http.routers.flower.entrypoints=websecure"
+      - "traefik.http.services.flower.loadbalancer.server.port=5555"
+    networks:
+      - kyda-network
+    depends_on:
+      - airflow-redis
 
 volumes:
   airflow-postgres-data:
@@ -132,3 +98,4 @@ volumes:
 networks:
   kyda-network:
     external: true
+

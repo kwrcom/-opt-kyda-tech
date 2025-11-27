@@ -18,7 +18,7 @@ services:
       - kyda-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host()"
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.kyda.tech`)"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
@@ -144,6 +144,40 @@ services:
       - "traefik.http.routers.minio-console.entrypoints=web"
       - "traefik.http.services.minio-console.loadbalancer.server.port=9001"
       - "traefik.docker.network=kyda-network"
+  backend:
+    build: ./services/backend
+    container_name: backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+    volumes:
+      - ./services/backend:/app
+      - ./services/backend/keys:/app/keys
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+    networks:
+      - kyda-network
+    labels:
+      - "traefik.enable=true"
+
+      # Роутер (домен → сервис backend)
+      - "traefik.http.routers.backend.rule=Host(`api.kyda.tech`)"
+
+      # HTTPS entrypoint (у вас называется websecure)
+      - "traefik.http.routers.backend.entrypoints=websecure"
+
+      # SSL-сертификаты через ваш resolver
+      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
+
+      # Внутренний порт backend-сервиса
+      - "traefik.http.services.backend.loadbalancer.server.port=8000"
+
+      # Указываем сеть, в которой Traefik должен искать backend
+      - "traefik.docker.network=kyda-network"
+
 networks:
   kyda-network:
     external: true
+
