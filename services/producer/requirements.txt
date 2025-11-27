@@ -1,6 +1,4 @@
 kafka-python
-pydantic
 faker
-python-dotenv
-prometheus_client
+prometheus-client
 

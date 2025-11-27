@@ -3,118 +3,122 @@ import json
 import time
 import uuid
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 from faker import Faker
 from kafka import KafkaProducer
-from prometheus_client import Counter, Histogram, start_http_server
+from prometheus_client import Counter, start_http_server
 
 fake = Faker()
 
-# ===========================
-# Configuration
-# ===========================
+# ======================
+# CONFIG
+# ======================
 KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-TPS = float(os.getenv("TRANSACTIONS_PER_SECOND", 5))
+TRANSACTIONS_PER_SECOND = int(os.getenv("TRANSACTIONS_PER_SECOND", 10))
 FRAUD_RATIO = float(os.getenv("FRAUD_RATIO", 0.05))
-TOPIC_NAME = "transactions"
+TOPIC_NAME = os.getenv("TOPIC_NAME", "transactions")
 
-# ===========================
-# Prometheus Metrics
-# ===========================
-TRANSACTION_COUNTER = Counter("producer_transactions_total", "Total transactions produced")
-FRAUD_COUNTER = Counter("producer_fraud_transactions_total", "Fraud transactions produced")
-AMOUNT_HISTOGRAM = Histogram("producer_transaction_amount", "Transaction amount distribution")
+# ======================
+# METRICS
+# ======================
+try:
+    start_http_server(8000)
+    METRIC_TOTAL = Counter("producer_transactions_total", "Total transactions generated")
+    METRIC_FRAUD = Counter("producer_transactions_fraud", "Fraudulent transactions generated")
+except Exception:
+    METRIC_TOTAL = None
+    METRIC_FRAUD = None
 
-start_http_server(8000)
-
-# ===========================
-# Producer
-# ===========================
-producer = KafkaProducer(
-    bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-    value_serializer=lambda v: json.dumps(v).encode("utf-8")
-)
-
-merchant_categories = {
-    "electronics": (50, 400),
-    "grocery": (5, 80),
-    "fashion": (20, 300),
-    "restaurants": (10, 120),
-    "travel": (100, 1500),
+# Merchant categories & typical amount ranges
+MERCHANT_CATEGORIES = {
+    "grocery": (10, 150),
+    "electronics": (50, 1500),
+    "restaurants": (5, 200),
+    "travel": (50, 1000),
+    "atm": (20, 300)
 }
 
-transaction_types = ["online", "pos", "atm"]
+COUNTRIES = ["US", "UK", "DE", "SG", "KZ", "AE", "AU"]
+CITIES = ["New York", "London", "Berlin", "Singapore", "Almaty", "Dubai", "Sydney"]
 
-countries = ["US", "UK", "DE", "FR", "KZ", "CN", "AU"]
+# ======================
+# TRANSACTION GENERATOR
+# ======================
 
-# ===========================
-# Fraud Generation Logic
-# ===========================
-def generate_normal_transaction(user_id):
-    category = random.choice(list(merchant_categories.keys()))
-    min_amt, max_amt = merchant_categories[category]
-    amount = round(random.uniform(min_amt, max_amt), 2)
-
-    return {
-        "transaction_id": str(uuid.uuid4()),
-        "user_id": user_id,
-        "amount": amount,
-        "currency": "USD",
-        "merchant_id": str(uuid.uuid4()),
-        "merchant_category": category,
-        "transaction_type": random.choice(transaction_types),
-        "timestamp": datetime.utcnow().isoformat(),
-        "location": {
-            "country": random.choice(countries[:3]),  # чаще стабильные локации
-            "city": fake.city(),
-        },
-        "device_id": str(uuid.uuid4()),
-        "is_fraud": False,
-    }
-
-
-def generate_fraudulent_transaction(user_id):
-    category = random.choice(list(merchant_categories.keys()))
-    min_amt, max_amt = merchant_categories[category]
-    fraud_amount = round(random.uniform(max_amt * 2, max_amt * 10), 2)
+def generate_normal_transaction():
+    category = random.choice(list(MERCHANT_CATEGORIES.keys()))
+    amount_min, amount_max = MERCHANT_CATEGORIES[category]
 
     return {
         "transaction_id": str(uuid.uuid4()),
-        "user_id": user_id,
-        "amount": fraud_amount,
+        "user_id": str(uuid.uuid4()),
+        "amount": round(random.uniform(amount_min, amount_max), 2),
         "currency": "USD",
         "merchant_id": str(uuid.uuid4()),
         "merchant_category": category,
-        "transaction_type": random.choice(transaction_types),
+        "transaction_type": random.choice(["pos", "online", "atm"]),
         "timestamp": datetime.utcnow().isoformat(),
         "location": {
-            "country": random.choice(countries),  # скачки между странами
-            "city": fake.city(),
+            "country": random.choice(COUNTRIES),
+            "city": random.choice(CITIES)
         },
         "device_id": str(uuid.uuid4()),
-        "is_fraud": True,
+        "is_fraud": False
     }
 
+def generate_fraud_transaction():
+    base = generate_normal_transaction()
 
-# ===========================
-# Main Loop
-# ===========================
-print(f"Producer started. TPS={TPS} FRAUD_RATIO={FRAUD_RATIO}")
+    anomaly_type = random.choice(["large_amount", "geo_jump", "burst"])
 
-while True:
-    user_id = str(uuid.uuid4())
+    if anomaly_type == "large_amount":
+        base["amount"] = round(base["amount"] * random.uniform(10, 50), 2)
 
-    is_fraud = random.random() < FRAUD_RATIO
-    if is_fraud:
-        tx = generate_fraudulent_transaction(user_id)
-        FRAUD_COUNTER.inc()
-    else:
-        tx = generate_normal_transaction(user_id)
+    elif anomaly_type == "geo_jump":
+        base["location"] = {
+            "country": random.choice(COUNTRIES),
+            "city": random.choice(CITIES)
+        }
+        base["timestamp"] = (datetime.utcnow() + timedelta(seconds=random.randint(-120, 120))).isoformat()
 
-    AMOUNT_HISTOGRAM.observe(tx["amount"])
-    TRANSACTION_COUNTER.inc()
+    elif anomaly_type == "burst":
+        base["timestamp"] = datetime.utcnow().isoformat()
+        # For burst pattern, user generates many transactions quickly
+        # (Handled naturally by high TPS in producer)
 
-    producer.send(TOPIC_NAME, tx)
+    base["is_fraud"] = True
+    return base
 
-    time.sleep(1 / TPS)
+
+# ======================
+# MAIN LOOP
+# ======================
+
+def main():
+    producer = KafkaProducer(
+        bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
+        value_serializer=lambda v: json.dumps(v).encode("utf-8")
+    )
+
+    print(f"Producer started. TPS={TRANSACTIONS_PER_SECOND}, FRAUD={FRAUD_RATIO}")
+
+    interval = 1.0 / TRANSACTIONS_PER_SECOND
+
+    while True:
+        is_fraud = random.random() < FRAUD_RATIO
+
+        tx = generate_fraud_transaction() if is_fraud else generate_normal_transaction()
+
+        producer.send(TOPIC_NAME, tx)
+
+        if METRIC_TOTAL:
+            METRIC_TOTAL.inc()
+            if is_fraud:
+                METRIC_FRAUD.inc()
+
+        time.sleep(interval)
+
+
+if __name__ == "__main__":
+    main()
 

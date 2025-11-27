@@ -25,10 +25,11 @@ services:
 
   postgres:
     image: postgres:15
+    container_name: kyda-tech-postgres-1
     environment:
-      POSTGRES_DB:
-      POSTGRES_USER:
-      POSTGRES_PASSWORD:
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     networks:
@@ -36,64 +37,39 @@ services:
 
   redis:
     image: redis:7-alpine
-      # Добавьте пароль, если нужно, например:
-      # REDIS_PASSWORD: 
+    container_name: kyda-tech-redis-1
     networks:
       - kyda-network
-      # Для начала можно без тома, опционально:
-      # volumes:
-      #   - ./data/redis:/data
-
-  kafka:
-    image: confluentinc/cp-kafka:latest
+ 
+   kafka:
+    image: confluentinc/cp-kafka:7.4.0
     hostname: kafka
     container_name: kafka
     restart: unless-stopped
     environment:
-      # KRaft-режим (без Zookeeper)
-      KAFKA_KRAFT_MODE: "true"
+      CLUSTER_ID: "qZ0qRzALQHG9p8Kp2fDx1Q"
       KAFKA_PROCESS_ROLES: "broker,controller"
-      KAFKA_NODE_ID: 1
+      KAFKA_NODE_ID: "1"
 
-      # Контроллер-кворум (один узел)
-      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
-
-      # Слушатели
-      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093"
+    # --- LISTENERS ---
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:29093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
-      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+
+    # --- REQUIRED but missing ---
       KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
 
-      # Очень важно: как другие сервисы будут к нему ходить из Docker-сети
-      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
-
-      # Технические настройки для single-broker
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    # --- KRaft controller ---
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:29093"
 
     volumes:
       - ./data/kafka:/var/lib/kafka/data
     networks:
       - kyda-network
-  test-producer:
-    build: ./services/producer
-    depends_on:
-      - kafka
-    networks:
-      - kyda-network
-    restart: unless-stopped
-
-  test-consumer:
-    build: ./services/consumer
-    depends_on:
-      - kafka
-    networks:
-      - kyda-network
-    restart: unless-stopped
-
-  mlflow:
+ 
+ 
+    mlflow:
     build: ./services/mlflow
     image: kyda-mlflow:v3.7.0
     container_name: mlflow
@@ -120,13 +96,14 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mlflow.rule=Host(`mlflow.kyda.tech`)"
-      - "traefik.http.routers.mlflow.entrypoints=web"
+      - "traefik.http.routers.mlflow.entrypoints=websecure"
+      - "traefik.http.routers.mlflow.tls.certresolver=letsencrypt"
       - "traefik.http.services.mlflow.loadbalancer.server.port=5000"
       - "traefik.docker.network=kyda-network"
 
-
   minio:
     image: minio/minio:latest
+    container_name: kyda-tech-minio-1
     command: server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: minioadmin
@@ -141,9 +118,11 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.minio-console.rule=Host(`minio-console.kyda.tech`)"
-      - "traefik.http.routers.minio-console.entrypoints=web"
+      - "traefik.http.routers.minio-console.entrypoints=websecure"
+      - "traefik.http.routers.minio-console.tls.certresolver=letsencrypt"
       - "traefik.http.services.minio-console.loadbalancer.server.port=9001"
       - "traefik.docker.network=kyda-network"
+
   backend:
     build: ./services/backend
     container_name: backend
@@ -161,21 +140,30 @@ services:
       - kyda-network
     labels:
       - "traefik.enable=true"
-
-      # Роутер (домен → сервис backend)
       - "traefik.http.routers.backend.rule=Host(`api.kyda.tech`)"
-
-      # HTTPS entrypoint (у вас называется websecure)
       - "traefik.http.routers.backend.entrypoints=websecure"
-
-      # SSL-сертификаты через ваш resolver
       - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
-
-      # Внутренний порт backend-сервиса
       - "traefik.http.services.backend.loadbalancer.server.port=8000"
-
-      # Указываем сеть, в которой Traefik должен искать backend
       - "traefik.docker.network=kyda-network"
+
+  producer:
+      container_name: producer
+      build:
+        context: /opt/kyda-tech/services/producer
+        dockerfile: Dockerfile
+      depends_on:
+        kafka:
+          condition: service_started
+          required: true
+      environment:
+        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+        TOPIC_NAME: transactions
+        TRANSACTIONS_PER_SECOND: "20"
+        FRAUD_RATIO: "0.05"
+      restart: unless-stopped
+      networks:
+        - kyda-network
+
 
 networks:
   kyda-network:
