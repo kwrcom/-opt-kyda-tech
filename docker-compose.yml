@@ -41,7 +41,7 @@ services:
     networks:
       - kyda-network
  
-   kafka:
+  kafka:
     image: confluentinc/cp-kafka:7.4.0
     hostname: kafka
     container_name: kafka
@@ -69,7 +69,7 @@ services:
       - kyda-network
  
  
-    mlflow:
+  mlflow:
     build: ./services/mlflow
     image: kyda-mlflow:v3.7.0
     container_name: mlflow
@@ -163,6 +163,7 @@ services:
       restart: unless-stopped
       networks:
         - kyda-network
+#  --- formatted ---
 
 
 networks:
