@@ -4,24 +4,146 @@ services:
   traefik:
     image: traefik:latest
     container_name: traefik
-    restart: unless-stopped
+    command:
+      - --configFile=/etc/traefik/traefik.yml
+      - --api.dashboard=true
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
-      - ./traefik/dynamic_conf.yml:/etc/traefik/dynamic_conf.yml:ro
-      - ./data/traefik:/letsencrypt
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./acme.json:/acme.json
     networks:
       - kyda-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.kyda.tech`)"
-      - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.tls.certresolver=le"
-      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.dashboard.rule=Host()"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
 
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    networks:
+      - kyda-network
+
+  redis:
+    image: redis:7-alpine
+      # Добавьте пароль, если нужно, например:
+      # REDIS_PASSWORD: 
+    networks:
+      - kyda-network
+      # Для начала можно без тома, опционально:
+      # volumes:
+      #   - ./data/redis:/data
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    container_name: kafka
+    restart: unless-stopped
+    environment:
+      # KRaft-режим (без Zookeeper)
+      KAFKA_KRAFT_MODE: "true"
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      KAFKA_NODE_ID: 1
+
+      # Контроллер-кворум (один узел)
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+
+      # Слушатели
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
+
+      # Очень важно: как другие сервисы будут к нему ходить из Docker-сети
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
+
+      # Технические настройки для single-broker
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+
+    volumes:
+      - ./data/kafka:/var/lib/kafka/data
+    networks:
+      - kyda-network
+  test-producer:
+    build: ./services/producer
+    depends_on:
+      - kafka
+    networks:
+      - kyda-network
+    restart: unless-stopped
+
+  test-consumer:
+    build: ./services/consumer
+    depends_on:
+      - kafka
+    networks:
+      - kyda-network
+    restart: unless-stopped
+
+  mlflow:
+    build: ./services/mlflow
+    image: kyda-mlflow:v3.7.0
+    container_name: mlflow
+    restart: unless-stopped
+    environment:
+      AWS_ACCESS_KEY_ID: "minioadmin"
+      AWS_SECRET_ACCESS_KEY: "minioadmin"
+      MLFLOW_S3_ENDPOINT_URL: "http://minio:9000"
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      --default-artifact-root s3://mlflow/
+      --host 0.0.0.0
+      --port 5000
+      --allowed-hosts "92.38.49.74:5000,mlflow.kyda.tech,localhost,127.0.0.1"
+      --cors-allowed-origins "*"
+    depends_on:
+      - postgres
+      - minio
+    networks:
+      - kyda-network
+    ports:
+      - "5000:5000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mlflow.rule=Host(`mlflow.kyda.tech`)"
+      - "traefik.http.routers.mlflow.entrypoints=web"
+      - "traefik.http.services.mlflow.loadbalancer.server.port=5000"
+      - "traefik.docker.network=kyda-network"
+
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - ./data/minio:/data
+    networks:
+      - kyda-network
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.minio-console.rule=Host(`minio-console.kyda.tech`)"
+      - "traefik.http.routers.minio-console.entrypoints=web"
+      - "traefik.http.services.minio-console.loadbalancer.server.port=9001"
+      - "traefik.docker.network=kyda-network"
 networks:
   kyda-network:
     external: true

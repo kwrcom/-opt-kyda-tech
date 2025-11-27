@@ -1,0 +1,99 @@
+version: "3.9"
+
+x-airflow-common:
+  &airflow-common
+  image: kyda-airflow:2.8.1
+  environment: &airflow-env
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+
+    # База Airflow (мета-БД)
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+
+    # Celery + Redis
+    AIRFLOW__CELERY__BROKER_URL: redis://airflow-redis:6379/0
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@airflow-postgres:5432/airflow
+
+    # Базовые настройки
+    AIRFLOW__CORE__FERNET_KEY: "fernet_kyda_please_change_me"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+
+    # Webserver
+    AIRFLOW__WEBSERVER__SECRET_KEY: "super_secret_kyda_airflow_key"
+    AIRFLOW__WEBSERVER__BASE_URL: "http://airflow.kyda.tech"
+
+  volumes:
+    # папки считаем от корня проекта (../.. от configs/airflow)
+    - ../../dags:/opt/airflow/dags
+    - ../../logs/airflow:/opt/airflow/logs
+  user: "50000:0"
+  depends_on:
+    airflow-postgres:
+      condition: service_started
+    airflow-redis:
+      condition: service_started
+  networks:
+    - kyda-network
+
+services:
+  # Метабаза Airflow
+  airflow-postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: airflow
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+    volumes:
+      - ../../data/airflow-postgres:/var/lib/postgresql/data
+    networks:
+      - kyda-network
+
+  # Redis как брокер Celery
+  airflow-redis:
+    image: redis:7-alpine
+    command: redis-server --save 60 1 --loglevel warning
+    networks:
+      - kyda-network
+
+  # Webserver
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.airflow.rule=Host(`airflow.kyda.tech`)"
+      - "traefik.http.routers.airflow.entrypoints=web"
+      - "traefik.http.services.airflow.loadbalancer.server.port=8080"
+      - "traefik.docker.network=kyda-network"
+
+  # Scheduler
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+
+  # Worker (CeleryExecutor)
+  airflow-worker:
+    <<: *airflow-common
+    command: celery worker
+    environment:
+      <<: *airflow-env
+      AIRFLOW__CELERY__WORKER_CONCURRENCY: 4
+
+  # Flower
+  airflow-flower:
+    <<: *airflow-common
+    command: celery flower
+    ports:
+      - "5555:5555"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flower.rule=Host(`flower.kyda.tech`)"
+      - "traefik.http.routers.flower.entrypoints=web"
+      - "traefik.http.services.flower.loadbalancer.server.port=5555"
+      - "traefik.docker.network=kyda-network"
+
+networks:
+  kyda-network:
+    external: true
