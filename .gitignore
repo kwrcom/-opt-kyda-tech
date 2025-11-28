@@ -1,2 +1,19 @@
 .env
 data/
+vault/creds/
+services/backend/keys/private.pem
+services/backend/keys/public.pem
+
+# Ignore frontend build artifacts & dependencies
+frontend/*/node_modules/
+frontend/*/build/
+
+# Archives created by automated cleanup to keep vendored node packages out of the repo
+frontend/archive/*
+!frontend/archive/README.md
+frontend/*/archive/*
+!frontend/*/archive/README.md
+
+# backup folders included in the repo (safety backups) - ignore them going forward
+*.bak_*
+frontend/*/*.bak_*
