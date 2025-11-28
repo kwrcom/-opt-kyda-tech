@@ -95,28 +95,65 @@ def generate_fraud_transaction():
 # ======================
 
 def main():
-    producer = KafkaProducer(
-        bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-        value_serializer=lambda v: json.dumps(v).encode("utf-8")
-    )
-
-    print(f"Producer started. TPS={TRANSACTIONS_PER_SECOND}, FRAUD={FRAUD_RATIO}")
-
+    # Keep trying to connect to Kafka; if connection drops, retry.
     interval = 1.0 / TRANSACTIONS_PER_SECOND
 
     while True:
-        is_fraud = random.random() < FRAUD_RATIO
+        producer = None
+        try:
+            backoff = 1
+            while True:
+                try:
+                    producer = KafkaProducer(
+                        bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
+                        value_serializer=lambda v: json.dumps(v).encode("utf-8")
+                    )
+                    print(f"Producer connected to {KAFKA_BOOTSTRAP_SERVERS}. TPS={TRANSACTIONS_PER_SECOND}, FRAUD={FRAUD_RATIO}")
+                    break
+                except Exception as e:
+                    print(f"Kafka connection failed: {e}. Retrying in {backoff}s...")
+                    time.sleep(backoff)
+                    backoff = min(backoff * 2, 30)
 
-        tx = generate_fraud_transaction() if is_fraud else generate_normal_transaction()
+            # main send loop; if send fails, recreate producer
+            while True:
+                try:
+                    is_fraud = random.random() < FRAUD_RATIO
+                    tx = generate_fraud_transaction() if is_fraud else generate_normal_transaction()
 
-        producer.send(TOPIC_NAME, tx)
+                    producer.send(TOPIC_NAME, tx)
 
-        if METRIC_TOTAL:
-            METRIC_TOTAL.inc()
-            if is_fraud:
-                METRIC_FRAUD.inc()
+                    if METRIC_TOTAL:
+                        METRIC_TOTAL.inc()
+                        if is_fraud:
+                            METRIC_FRAUD.inc()
 
-        time.sleep(interval)
+                    time.sleep(interval)
+
+                except Exception as e:
+                    print(f"Send failed: {e}. Will attempt to reconnect to Kafka.")
+                    try:
+                        producer.close()
+                    except Exception:
+                        pass
+                    break
+
+        except KeyboardInterrupt:
+            print("Producer interrupted, exiting")
+            try:
+                if producer:
+                    producer.close()
+            except Exception:
+                pass
+            raise
+        except Exception as e:
+            print(f"Unexpected error in producer loop: {e}. Sleeping 5s before retry.")
+            try:
+                if producer:
+                    producer.close()
+            except Exception:
+                pass
+            time.sleep(5)
 
 
 if __name__ == "__main__":

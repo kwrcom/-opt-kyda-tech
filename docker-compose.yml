@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   traefik:
@@ -40,7 +40,7 @@ services:
     container_name: kyda-tech-redis-1
     networks:
       - kyda-network
- 
+
   kafka:
     image: confluentinc/cp-kafka:7.4.0
     hostname: kafka
@@ -51,22 +51,22 @@ services:
       KAFKA_PROCESS_ROLES: "broker,controller"
       KAFKA_NODE_ID: "1"
 
-    # --- LISTENERS ---
+      # --- LISTENERS ---
       KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093"
       KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
 
-    # --- REQUIRED but missing ---
+      # --- REQUIRED but missing ---
       KAFKA_INTER_BROKER_LISTENER_NAME: "PLAINTEXT"
 
-    # --- KRaft controller ---
+      # --- KRaft controller ---
       KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
       KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
-    ports: "9092:9092"
+    ports:
+      - "9092:9092"
     networks:
       - kyda-network
- 
- 
+
   mlflow:
     build: ./services/mlflow
     image: kyda-mlflow:v3.7.0
@@ -145,26 +145,24 @@ services:
       - "traefik.docker.network=kyda-network"
 
   producer:
-      container_name: producer
-      build:
-        context: /opt/kyda-tech/services/producer
-        dockerfile: Dockerfile
-      depends_on:
-        kafka:
-          condition: service_started
-          required: true
-      environment:
-        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-        TOPIC_NAME: transactions
-        TRANSACTIONS_PER_SECOND: "20"
-        FRAUD_RATIO: "0.05"
-      restart: unless-stopped
-      networks:
-        - kyda-network
+    container_name: producer
+    build:
+      context: ./services/producer
+      dockerfile: Dockerfile
+    depends_on:
+      kafka:
+        condition: service_started
+        required: true
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      TOPIC_NAME: transactions
+      TRANSACTIONS_PER_SECOND: "20"
+      FRAUD_RATIO: "0.05"
+    restart: unless-stopped
+    networks:
+      - kyda-network
 #  --- formatted ---
-
 
 networks:
   kyda-network:
     external: true
-
